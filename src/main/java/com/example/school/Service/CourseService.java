@@ -40,14 +40,15 @@ public class CourseService {
         courseRepo.delete(course);
     }
 
-    public void assignTeacher(Integer course_id, Integer teacher_id) {
-        Course course = courseRepo.findByid(course_id);
-        Teacher teacher = teacherRepo.findByid(teacher_id);
+    public void assignTeacher(Integer courseId, Integer teacherId) {
+        Course course = courseRepo.findByid(courseId);
+        Teacher teacher = teacherRepo.findByid(teacherId);
         if (teacher == null || course == null) {
             throw new RuntimeException("Teacher or course not found");
         }
         course.setTeacher(teacher);
-        courseRepo.save(course);
+        courseRepo.save(course); // Save the course
+
     }
     public Teacher getTeacherById(Integer teacherId) {
      Teacher teacher = teacherRepo.findByid(teacherId);
@@ -62,6 +63,7 @@ public class CourseService {
         if (course == null) {
             throw new RuntimeException("Course not found");
         }
+
         Teacher teacher = course.getTeacher();
          if (teacher == null) {
             throw new RuntimeException("No teacher assigned to this course");

@@ -24,7 +24,7 @@ public class Course {
 
     @ManyToOne
     //optional used in many
-    @JoinColumn(name = "teacher_id", referencedColumnName = "id")
+//    @JoinColumn(name = "teacher_id", referencedColumnName = "id")
     @JsonIgnore
     private Teacher teacher;
 }

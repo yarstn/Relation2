@@ -32,9 +32,9 @@ public class CourseController {
         courseService.deleteCourse(id);
         return ResponseEntity.ok("Course deleted");
     }
-    @PutMapping("/assign/{course_id}/{teacher_id}")
-    public ResponseEntity assignCourse(@PathVariable Integer course_id, @PathVariable Integer teacher_id) {
-        courseService.assignTeacher(course_id, teacher_id);
+    @PutMapping("/assign/{courseId}/{teacherId}")
+    public ResponseEntity assignCourse(@PathVariable Integer courseId, @PathVariable Integer teacherId) {
+        courseService.assignTeacher(courseId, teacherId);
         return ResponseEntity.ok("Course assigned");
     }
     @GetMapping("/{teacherId}")

@@ -9,7 +9,6 @@ import lombok.*;
 
 import java.util.Set;
 
-@Data
 @Entity
 @NoArgsConstructor
 @Getter
@@ -42,7 +41,9 @@ public class Teacher {
     private Address address;
 
     //NO DUPLICATE
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "teacher")
     private Set<Course> course;
+
 
 }
